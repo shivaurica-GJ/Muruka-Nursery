@@ -9,7 +9,7 @@ const LiveChat = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm Sarah from GreenGrove Nursery. How can I help you find the perfect plants today?",
+      text: "Hi! I'm Sarah from Muruka Nursery. How can I help you find the perfect plants today?",
       sender: "agent",
       time: new Date().toLocaleTimeString([], {
         hour: "2-digit",
@@ -67,7 +67,7 @@ const LiveChat = () => {
       // Get response from Gemini
       try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const prompt = `You are Sarah, a friendly plant expert at GreenGrove Nursery. 
+        const prompt = `You are Sarah, a friendly plant expert at Muruka Nursery. 
         Respond to this customer message about plants in a helpful, professional, 
         and slightly conversational tone: "${message}"`;
 

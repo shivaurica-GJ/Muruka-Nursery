@@ -1,6 +1,6 @@
-import React from 'react';
-import { X } from 'lucide-react';
-import { Product } from '../data/products';
+import React from "react";
+import { X } from "lucide-react";
+import { Product } from "../data/products";
 
 interface ProductDetailsProps {
   product: Product | null;
@@ -29,19 +29,55 @@ const ProductDetails = ({ product, onClose }: ProductDetailsProps) => {
           />
 
           <div className="flex-1">
-            <h2 className="text-2xl sm:text-3xl font-bold text-green-700 mb-2">{product.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-700 mb-2">
+              {product.name}
+            </h2>
             <p className="text-base text-gray-700 font-medium mb-2">
               Variety: <span className="text-gray-600">{product.variety}</span>
             </p>
-            <p className="text-green-600 font-semibold text-xl mb-4">{product.price}</p>
+            <p className="text-green-600 font-semibold text-xl mb-4">
+              {product.price}
+            </p>
 
             <p className="text-gray-600 text-sm sm:text-base mb-3">
               {product.description}
             </p>
 
             {product.fullDescription && (
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm text-gray-700 leading-relaxed">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm text-gray-700 leading-relaxed mb-4">
                 {product.fullDescription}
+              </div>
+            )}
+
+            {product.youtubeUrl && (
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                  Watch Video
+                </h3>
+                <div className="aspect-video w-full rounded-lg overflow-hidden">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`${product.youtubeUrl}?autoplay=1&mute=1`}
+                    title={product.name}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            )}
+
+            {product.googleQuery && (
+              <div className="mt-2">
+                <a
+                  href={`${product.googleQuery}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+                >
+                  Read More on Google
+                </a>
               </div>
             )}
           </div>

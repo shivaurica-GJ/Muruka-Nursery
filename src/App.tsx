@@ -1,20 +1,17 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Apple, Mountain, Leaf, Flower } from "lucide-react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ProductSection from "./components/ProductSection";
 import Footer from "./components/Footer";
+import LiveChat from "./components/LiveChat";
+import ExpertConsultation from "./components/ExpertConsultation";
 import { CartProvider } from "./context/CartContext";
 import { products } from "./data/products";
 import DeliveryStats from "./components/DeliveryStats";
 import YardBenefits from "./components/YardBenefits";
 import CustomerReviews from "./components/CustomerReviews";
-
-// Lazy-loaded non-critical components
-const LiveChat = lazy(() => import("./components/LiveChat"));
-const ExpertConsultation = lazy(
-  () => import("./components/ExpertConsultation")
-);
+// import CustomerTrust from './components/CustomerTrust';
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -99,6 +96,8 @@ function App() {
             accentColor="green"
           />
 
+          {/* <CustomerTrust /> */}
+
           <ProductSection
             id="flowering-trees"
             title="Flowering Trees"
@@ -117,11 +116,9 @@ function App() {
 
         <Footer scrollToSection={scrollToSection} />
 
-        {/* Lazy-loaded Floating Components */}
-        <Suspense fallback={null}>
-          <LiveChat />
-          <ExpertConsultation />
-        </Suspense>
+        {/* Floating Action Components */}
+        <LiveChat />
+        <ExpertConsultation />
       </div>
     </CartProvider>
   );
