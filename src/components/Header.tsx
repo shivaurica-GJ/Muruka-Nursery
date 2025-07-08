@@ -47,9 +47,9 @@ const Header = ({ activeSection, scrollToSection }: HeaderProps) => {
               <img
                 src="/public/Logo.png"
                 alt="logo_bhavin_nursery"
-                className="w-12 h-12"
+                className="w-12 h-12 "
               />
-              <span className="text-xl font-bold text-green-800">
+              <span className="text-xl font-bold text-green-800 select-none">
                 Muruka Nursery
               </span>
             </div>

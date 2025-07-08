@@ -1,5 +1,13 @@
-import { useState } from 'react';
-import { Users, Phone, Video, MessageSquare, X, Calendar, Clock } from 'lucide-react';
+import { useState } from "react";
+import {
+  Users,
+  Phone,
+  Video,
+  MessageSquare,
+  X,
+  Calendar,
+  Clock,
+} from "lucide-react";
 
 const ExpertConsultation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +41,9 @@ const ExpertConsultation = () => {
             </div>
             <div>
               <h2 className="text-xl font-bold">Plant Expert Consultation</h2>
-              <p className="text-blue-100 text-sm">Get personalized gardening advice</p>
+              <p className="text-blue-100 text-sm">
+                Get personalized gardening advice
+              </p>
             </div>
           </div>
         </div>
@@ -41,33 +51,47 @@ const ExpertConsultation = () => {
         {/* Content */}
         <div className="p-6">
           <div className="mb-6">
-            <h3 className="font-semibold text-gray-800 mb-2">Choose your consultation method:</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">
+              Choose your consultation method:
+            </h3>
             <div className="space-y-3">
               <button className="w-full flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
                 <Phone className="w-6 h-6 text-black-600" />
                 <div className="text-left">
                   <p className="font-medium text-gray-800">Phone Call</p>
-                  <p className="text-sm text-gray-600">15-30 min consultation</p>
+                  <p className="text-sm text-gray-600">
+                    15-30 min consultation
+                  </p>
                 </div>
-                <span className="ml-auto text-green-600 font-semibold">Free</span>
+                <span className="ml-auto text-green-600 font-semibold">
+                  Free
+                </span>
               </button>
-              
+
               <button className="w-full flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
                 <Video className="w-6 h-6 text-black-600" />
                 <div className="text-left">
                   <p className="font-medium text-gray-800">Video Call</p>
-                  <p className="text-sm text-gray-600">30-45 min detailed session</p>
+                  <p className="text-sm text-gray-600">
+                    30-45 min detailed session
+                  </p>
                 </div>
-                <span className="ml-auto text-orange-600 font-semibold">$25</span>
+                <span className="ml-auto text-orange-600 font-semibold">
+                  $25
+                </span>
               </button>
-              
+
               <button className="w-full flex items-center space-x-4 p-4 border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
                 <MessageSquare className="w-6 h-6 text-black-600" />
                 <div className="text-left">
                   <p className="font-medium text-gray-800">Chat Session</p>
-                  <p className="text-sm text-gray-600">Real-time messaging support</p>
+                  <p className="text-sm text-gray-600">
+                    Real-time messaging support
+                  </p>
                 </div>
-                <span className="ml-auto text-green-600 font-semibold">Free</span>
+                <span className="ml-auto text-green-600 font-semibold">
+                  Free
+                </span>
               </button>
             </div>
           </div>
@@ -75,7 +99,9 @@ const ExpertConsultation = () => {
           <div className="bg-green-50 p-4 rounded-lg mb-6">
             <div className="flex items-center space-x-2 mb-2">
               <Calendar className="w-5 h-5 text-green-600" />
-              <span className="font-medium text-green-800">Available Today</span>
+              <span className="font-medium text-green-800">
+                Available Today
+              </span>
             </div>
             <div className="flex items-center space-x-2 text-sm text-green-700">
               <Clock className="w-4 h-4" />
@@ -84,7 +110,9 @@ const ExpertConsultation = () => {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-medium text-gray-800">Our experts can help with:</h4>
+            <h4 className="font-medium text-gray-800">
+              Our experts can help with:
+            </h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• Plant selection for your climate</li>
               <li>• Garden design and layout</li>
