@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Apple, Mountain, Leaf, Flower } from "lucide-react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -11,7 +12,8 @@ import { products } from "./data/products";
 import DeliveryStats from "./components/DeliveryStats";
 import YardBenefits from "./components/YardBenefits";
 import CustomerReviews from "./components/CustomerReviews";
-// import CustomerTrust from './components/CustomerTrust';
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -48,79 +50,85 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
-        <Header
-          activeSection={activeSection}
-          scrollToSection={scrollToSection}
-        />
+    <Router>
+      <CartProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50">
+                <Header
+                  activeSection={activeSection}
+                  scrollToSection={scrollToSection}
+                />
 
-        <main>
-          <HeroSection scrollToSection={scrollToSection} />
+                <main>
+                  <HeroSection scrollToSection={scrollToSection} />
 
-          <ProductSection
-            id="fruit-trees"
-            title="Fruit Trees"
-            description="Enjoy fresh, homegrown fruit with our premium selection of fruit trees. Perfect for any garden size."
-            icon={
-              <Apple className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-red-500" />
+                  <ProductSection
+                    id="fruit-trees"
+                    title="Fruit Trees"
+                    description="Enjoy fresh, homegrown fruit with our premium selection of fruit trees. Perfect for any garden size."
+                    icon={
+                      <Apple className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-red-500" />
+                    }
+                    products={products.fruitTrees}
+                    backgroundColor="bg-white"
+                    accentColor="red"
+                  />
+
+                  <ProductSection
+                    id="evergreen"
+                    title="Evergreen Trees"
+                    description="Create year-round beauty with our majestic evergreen trees. Perfect for privacy, windbreaks, and winter interest."
+                    icon={
+                      <Mountain className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-green-600" />
+                    }
+                    products={products.evergreen}
+                    backgroundColor="bg-gradient-to-br from-green-50 to-emerald-50"
+                    accentColor="green"
+                  />
+
+                  <DeliveryStats />
+
+                  <ProductSection
+                    id="shrubs"
+                    title="Shrubs & Bushes"
+                    description="Add structure and color to your landscape with our diverse selection of shrubs and bushes."
+                    icon={
+                      <Leaf className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-green-500" />
+                    }
+                    products={products.shrubs}
+                    backgroundColor="bg-white"
+                    accentColor="green"
+                  />
+
+                  <ProductSection
+                    id="flowering-trees"
+                    title="Flowering Trees"
+                    description="Transform your garden into a spectacular display with our stunning flowering trees that bloom throughout the seasons."
+                    icon={
+                      <Flower className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-pink-500" />
+                    }
+                    products={products.floweringTrees}
+                    backgroundColor="bg-gradient-to-br from-pink-50 to-purple-50"
+                    accentColor="pink"
+                  />
+                </main>
+
+                <YardBenefits />
+                <CustomerReviews />
+                <Footer scrollToSection={scrollToSection} />
+                <LiveChat />
+                <ExpertConsultation />
+              </div>
             }
-            products={products.fruitTrees}
-            backgroundColor="bg-white"
-            accentColor="red"
           />
-
-          <ProductSection
-            id="evergreen"
-            title="Evergreen Trees"
-            description="Create year-round beauty with our majestic evergreen trees. Perfect for privacy, windbreaks, and winter interest."
-            icon={
-              <Mountain className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-green-600" />
-            }
-            products={products.evergreen}
-            backgroundColor="bg-gradient-to-br from-green-50 to-emerald-50"
-            accentColor="green"
-          />
-
-          <DeliveryStats />
-
-          <ProductSection
-            id="shrubs"
-            title="Shrubs & Bushes"
-            description="Add structure and color to your landscape with our diverse selection of shrubs and bushes."
-            icon={
-              <Leaf className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-green-500" />
-            }
-            products={products.shrubs}
-            backgroundColor="bg-white"
-            accentColor="green"
-          />
-
-          {/* <CustomerTrust /> */}
-
-          <ProductSection
-            id="flowering-trees"
-            title="Flowering Trees"
-            description="Transform your garden into a spectacular display with our stunning flowering trees that bloom throughout the seasons."
-            icon={
-              <Flower className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 text-pink-500" />
-            }
-            products={products.floweringTrees}
-            backgroundColor="bg-gradient-to-br from-pink-50 to-purple-50"
-            accentColor="pink"
-          />
-        </main>
-
-        <YardBenefits />
-        <CustomerReviews />
-
-        <Footer scrollToSection={scrollToSection} />
-
-        {/* Floating Action Components */}
-        <LiveChat />
-        <ExpertConsultation />
-      </div>
-    </CartProvider>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </CartProvider>
+    </Router>
   );
 }
 

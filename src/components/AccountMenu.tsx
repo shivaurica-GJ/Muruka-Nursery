@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { User, LogIn, UserPlus, Settings, Package, Heart, LogOut } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import {
+  User,
+  LogIn,
+  UserPlus,
+  Settings,
+  Package,
+  Heart,
+  LogOut
+} from 'lucide-react';
 
 interface AccountMenuProps {
   isOpen: boolean;
@@ -8,6 +17,7 @@ interface AccountMenuProps {
 
 const AccountMenu = ({ isOpen, onClose }: AccountMenuProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -21,13 +31,22 @@ const AccountMenu = ({ isOpen, onClose }: AccountMenuProps) => {
           </div>
           <div className="space-y-2">
             <button 
-              onClick={() => setIsLoggedIn(true)}
+              onClick={() => {
+                onClose();
+                navigate('/login');
+              }}
               className="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-green-50 rounded-lg transition-colors"
             >
               <LogIn className="w-5 h-5 text-green-600" />
               <span>Sign In</span>
             </button>
-            <button className="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-green-50 rounded-lg transition-colors">
+            <button 
+              onClick={() => {
+                onClose();
+                navigate('/signup');
+              }}
+              className="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-green-50 rounded-lg transition-colors"
+            >
               <UserPlus className="w-5 h-5 text-green-600" />
               <span>Create Account</span>
             </button>
